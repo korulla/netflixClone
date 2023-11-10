@@ -1,0 +1,48 @@
+<div class="contain mt-5">
+    <div class="row p-5">
+      <div class="col-lg-2" *ngIf="getMovieDetailResult.poster_path">
+        <img src="https://image.tmdb.org/t/p/original/{{ getMovieDetailResult.poster_path }}" alt="Movie Poster">
+      </div>
+      <div class="col-lg-10 mt-5 p-4">
+        <h1 class="mt-2 mb-2">{{getMovieDetailResult.original_title}}</h1>
+        <p class="mt-3 mb-3">{{getMovieDetailResult.overview}}</p>
+        <a class="btn btn-md" (click)="openTrailerModal(trailerModal)" style="cursor: pointer;">Watch Trailer</a>
+  
+        <div class="mt-4 p-4">
+          <h2 class="text-white">Top Cast</h2>
+          <div class="row">
+            <div class="col-lg-4" *ngFor="let c of getMovieCastResult">
+              <div class="row mt-2 mb-2">
+                <div class="col-lg-2" *ngIf="c.profile_path">
+                  <img src="https://image.tmdb.org/t/p/original/{{ c.profile_path}}" alt="Cast Profile">
+                </div>
+                <div class="col-lg-10">
+                  <h3 class="text-white">{{c.original_name}}</h3>
+                  <p class="text-white">{{c.character}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Trailer Modal -->
+  <!-- <ng-template #trailerModal let-modal>
+    <div class="modal-headerr">
+      <h4 class="modal-titlee">Movie Trailer</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div>
+      <iframe width="873" height="491" src="https://www.youtube.com/embed/uYPbbksJxIg" title="Oppenheimer | New Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </ng-template>
+   -->
+   <ng-template #trailerModal let-modal>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      </button>
+      <iframe width="873" height="491" [src]='c' title="Oppenheimer | New Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </ng-template>

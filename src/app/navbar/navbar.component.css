@@ -1,0 +1,13 @@
+.navbar .navbar-brand
+{
+    color: #E50914;
+    font-weight: bold;
+    /* font-family: 'Play', sans-serif; */
+}
+
+.navbar-nav .nav-item .nav-link
+{
+    color: #E50914;
+    font-family: 'Play', sans-serif;
+    font-weight: bold;
+}
